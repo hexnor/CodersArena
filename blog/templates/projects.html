@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block content %}
+    <h2 class="  bg-danger" style="text-align: center"> ALL GITHUB PROJECT REPOSITORIES </h2>
+    {% for repo in repos %}
+    <div class="col-md-4">
+        <div class="panel panel-default  modal-content">
+  <h5 class="panel-heading " style="color: #761c19"> <span class="glyphicon glyphicon-hand-right">&nbsp  </span>{{ repo.name }}
+<span class="pull-right text-muted small " >{{ repo.created_at}}&nbsp</span>
+  </h5>
+
+  <div class="panel-body">
+
+       <div class="card " >
+
+  <div class="card -block ">
+
+    <p class="card-text text-centered " style="overflow: hidden">{{ repo.description|truncatechars:100}}</p>
+      <a  class="btn-sm btn-danger pull-right" href="view/{{ post.pk}}">Read <span class="glyphicon glyphicon-share"></span></a>
+  </div>
+  <div class="btn-sm btn-success pull-left"
+      ><a href="{{ repo.homepage}}"> <span class="glyphicon glyphicon-download "></span></a>
+  </div>
+</div>
+  </div>
+</div>
+
+
+</div>
+     {% endfor %}
+{% endblock %}

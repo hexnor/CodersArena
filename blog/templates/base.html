@@ -1,0 +1,82 @@
+
+<html>
+    <head>
+        {% load staticfiles %}
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+
+
+<style type="text/css">
+
+    .bs{
+
+        background-image: url('https://image.freepik.com/free-vector/grey-linen-texture-background_1053-253.jpg');
+    background-repeat: repeat;
+    }
+</style>
+    </head>
+    <body class="bs">
+    <div >
+
+<nav class="navbar navbar-inverse navbar-fixed" style=" position: fixed;width: 100%; top: 0px;z-index: 1;
+    background: #000000">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style='color: #ffffff'> &nbsp&nbsp $~ CodersArena</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li {% if request.path == "/" %} class="active"{% endif %}><a href="/"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li{% if "/blog/" in request.path %} class="active"{% endif %}><a href="/blog"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
+                <li{% if "/projects/" in request.path %} class="active"{% endif %}><a href="/projects/"><span class="glyphicon  glyphicon-sound-dolby"></span> Projects</a></li>
+                <li><a href="#"><span class="	glyphicon glyphicon-question-sign"></span> Contact me</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+</div>
+    <div style="margin-top:70px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-bottom: 50px;">
+        <h1>{% block title %}{% endblock %}</h1>
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+
+
+
+   <div class="footer" style="  position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 20px;
+    color: white;
+    background-color: black;
+    width: 100%;"
+    >
+    <div class="container">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <div class="footer-text fixed-bottom">
+            <p style="text-align: center">  &copy Yokesh Rana - 2016</p>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

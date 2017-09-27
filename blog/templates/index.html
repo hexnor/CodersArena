@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block content %}
+
+
+{% if "/" == request.path %} {#for the home page#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endif %}
+
+{% if "/blog/" == request.path %} {#  for the blog page#}
+      <div class="col-md-8">
+    {% if posts %}
+
+        {% for post in posts %}
+            <div class="panel panel-default  modal-content">
+  <h5 class="panel-heading " style="color: #761c19"> <span class="glyphicon glyphicon-hand-right">&nbsp  </span>{{ post.title }}
+<span class="pull-right text-muted small " >{{ post.posted}}&nbsp</span>
+  </h5>
+
+  <div class="panel-body">
+
+       <div class="card " >
+
+  <div class="card -block ">
+
+    <p class="card-text text-centered " style="overflow: hidden">{{ post.body|truncatechars:200}}</p>
+      <a  class="btn-sm btn-danger pull-right" href="view/{{ post.pk}}">Read <span class="glyphicon glyphicon-share"></span></a>
+  </div>
+  <div class="card-footer text-muted pull-left" >
+    Posted by {{ post.postedby }}
+  </div>
+</div>
+  </div>
+</div>
+            <hr>
+        {% endfor %}
+                   {% else %}
+           <p>There are no posts.</p>
+    {% endif %}
+    <br><br>
+      </div>
+
+
+ <div class="col-md-4 hidden-sm " style="position: fixed;right: 0" >
+    <div class="panel panel-default">
+<h3 class="panel-heading" style="color: #761c19;"> Recent Blog Posts</h3>
+    {% if posts %}
+        <ul style="list-style: none;">
+        {% for post in posts %}
+            <li > <a href="blog/view/{{ post.pk}}"> <span class="glyphicon glyphicon-arrow-right">&nbsp</span><span style="color: #761c19;">{{ post.title|truncatewords:3 }} </span><span class="pull-right">Posted on {{ post.posted }} &nbsp </span></a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+
+    </div>
+
+    <div class="panel panel-default">
+
+    <h3 class="panel-heading" style="color: #761c19;" >Categories</h3>
+    {% if categories %}
+        <ul style="list-style: none">
+        {% for category in categories %}
+            <li><a href="blog/category/{{ category.pk}}"><span class="glyphicon glyphicon-arrow-right">&nbsp</span><span style="color: #761c19;">{{ category.title }}</span></a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+</div>
+{% endif %}
+
+{# blog page ends #}
+
+
+
+
+
+
+{% endblock %}
+</div>
