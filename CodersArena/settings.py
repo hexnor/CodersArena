@@ -7,9 +7,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's4)w-wrjm2ep46jqu%ga4=993f7cb4$f)a)i2rldcs@*d#%(iv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG=False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u"codersarena.me"]
 
 
 # Application definition
